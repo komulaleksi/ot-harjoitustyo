@@ -11,7 +11,7 @@ class Dice:
 
         for i in range(1, 6):
             die = random.randint(1, 6)
-            self.dice[i-1] = die        
+            self.dice[i-1] = die       
 
     def throw_dice(self):
         for i in range(1, 6):
@@ -27,6 +27,11 @@ class Dice:
 
         return
         
-
     def __str__(self):
         return str(self.dice)
+    
+    def set_dice(self, dice):
+        self.dice = dice
+
+    def get_dice(self):
+        return self.dice

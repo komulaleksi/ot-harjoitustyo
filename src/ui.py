@@ -1,6 +1,7 @@
 import os
 from tkinter import Tk
 from gamestate import GameState
+from scoring import Scoring
 
 #TODO Graafinen käyttöliittymä
 def start(dice):
@@ -13,6 +14,7 @@ def start_no_gui(dice):
     clear()
 
     state = GameState()
+    scoring = Scoring()
 
     while state.get_round() <= 13: # Peli kestää 13 kierrosta
         print("Syötä komento:")
@@ -20,7 +22,7 @@ def start_no_gui(dice):
         print(f"Pisteet: {state.get_score()}")
         print(f"Kierros #{state.get_round()}, heitto #{state.get_throw()}: {dice}")
         print(f"Lukitut nopat: {dice.dieheld}")
-        command = input()
+        command = input().lower()
         clear()
 
         if command == "r":
@@ -43,7 +45,32 @@ def start_no_gui(dice):
         else:
             print("Väärä komento.\n")
 
-        state.update()
+        if state.update() == True:
+            clear()
+            print("Pisteytyskategoriat: \n"
+            "Ykköset \n"
+            "Kakkoset \n"
+            "Kolmoset \n"
+            "Neloset \n"
+            "Viitoset \n"
+            "Kuutoset \n")
+            
+            command = input("Valitse pisteytyskategoria: ").lower()
+
+            if command == "ykköset":
+                state.set_score(scoring.ones(dice.get_dice()))
+            elif command == "kakkoset":
+                state.set_score(scoring.twos(dice.get_dice()))
+            elif command == "kolmoset":
+                state.set_score(scoring.threes(dice.get_dice()))
+            elif command == "neloset":
+                state.set_score(scoring.fours(dice.get_dice()))
+            elif command == "viitoset":
+                state.set_score(scoring.fives(dice.get_dice()))
+            elif command == "kuutoset":
+                state.set_score(scoring.sixes(dice.get_dice()))
+
+            clear()
     
     #TODO tulosnäkymä
     print(f"Lopputulos: {state.get_score()}")

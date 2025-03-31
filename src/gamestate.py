@@ -13,6 +13,9 @@ class GameState():
     def get_score(self):
         return self.score
     
+    def set_score(self, score):
+        self.score = score
+    
     def next_round(self):
         self.round += 1
         self.throw_number = 1
@@ -24,3 +27,6 @@ class GameState():
         if self.throw_number > 3:
             self.throw_number = 1
             self.round += 1
+            return True
+        
+        return False
