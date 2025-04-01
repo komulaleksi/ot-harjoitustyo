@@ -47,7 +47,7 @@ def start_no_gui(dice):
 
         if state.update() == True:
             clear()
-            print(dice)
+            print(f"Heitto #3: {dice}")
             print("Pisteytyskategoriat: \n"
             "Ykköset \n"
             "Kakkoset \n"

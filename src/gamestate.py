@@ -24,7 +24,7 @@ class GameState():
         self.throw_number += 1
 
     def update(self):
-        if self.throw_number > 3:
+        if self.throw_number >= 3:
             self.throw_number = 1
             self.round += 1
             return True
