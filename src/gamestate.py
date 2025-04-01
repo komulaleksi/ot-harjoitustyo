@@ -1,8 +1,8 @@
 class GameState():
-    def __init__(self):
-        self.round = 1
-        self.throw_number = 1
-        self.score = 0
+    def __init__(self, round=1, throw_number=1, score=0):
+        self.round = round
+        self.throw_number = throw_number
+        self.score = score
 
     def get_round(self):
         return self.round
