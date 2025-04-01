@@ -1,0 +1,12 @@
+sequenceDiagram
+    Main->>Laitehallinto: lisaa_lataaja(rautatientori)
+    Main->>Laitehallinto: lisaa_lukija(ratikka6)
+    Main->>Laitehallinto: lisaa_lukija(bussi244)
+    Main->>Kioski: lippu_luukku.osta_matkakortti("Kalle")
+    Kioski-->Matkakortti: Matkakortti("Kalle")
+    Main->>Lataajalaite: lataa_arvoa(kallen_kortti, 3)
+    Lataajalaite-->Matkakortti: kasvata_arvoa(3)
+    Main->>Lukijalaite: osta_lippu(kallen_kortti, 0)
+    Lukijalaite-->Matkakortti: vahenna_arvoa(1.5)
+    Main->>Lukijalaite: osta_lippu(kallen_kortti, 2)
+    Lukijalaite-->Matkakortti: vahenna_arvoa(3.5)
