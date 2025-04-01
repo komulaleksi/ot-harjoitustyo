@@ -3,4 +3,5 @@ Tarkoitus on tehdä versio **Yatzy** pelistä, jossa tarkoitus on saada *viittä
 
 [Laskarit](https://github.com/komulaleksi/ot-harjoitustyo/tree/master/laskarit)  
 [Vaativuusmäärittely](https://github.com/komulaleksi/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
-[Työaikakirjanpito](https://github.com/komulaleksi/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/komulaleksi/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)  
+[Changelog](https://github.com/komulaleksi/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
