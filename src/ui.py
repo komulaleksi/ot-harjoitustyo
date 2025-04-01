@@ -47,6 +47,7 @@ def start_no_gui(dice):
 
         if state.update() == True:
             clear()
+            print(dice)
             print("Pisteytyskategoriat: \n"
             "Ykköset \n"
             "Kakkoset \n"
@@ -69,7 +70,8 @@ def start_no_gui(dice):
                 state.set_score(scoring.fives(dice.get_dice()))
             elif command == "kuutoset":
                 state.set_score(scoring.sixes(dice.get_dice()))
-
+            
+            dice.reset_dice()
             clear()
     
     #TODO tulosnäkymä

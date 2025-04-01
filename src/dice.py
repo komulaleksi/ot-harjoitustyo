@@ -35,3 +35,9 @@ class Dice:
 
     def get_dice(self):
         return self.dice
+    
+    def reset_dice(self):
+        for status in self.dieheld:
+            self.dieheld[status] = False
+
+        self.throw_dice()
