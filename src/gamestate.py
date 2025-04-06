@@ -6,16 +6,16 @@ class GameState():
 
     def get_round(self):
         return self.round
-    
+
     def get_throw(self):
         return self.throw_number
-    
+
     def get_score(self):
         return self.score
-    
+
     def set_score(self, score):
         self.score = score
-    
+
     def next_round(self):
         self.round += 1
         self.throw_number = 1
@@ -28,5 +28,5 @@ class GameState():
             self.throw_number = 1
             self.round += 1
             return True
-        
+
         return False

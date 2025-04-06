@@ -1,6 +1,7 @@
 import unittest
 from gamestate import GameState
 
+
 class testGameState(unittest.TestCase):
     def setUp(self):
         self.state = GameState()
@@ -55,5 +56,3 @@ class testGameState(unittest.TestCase):
 
     def test_update_returns_false_before_three_throws(self):
         self.assertEqual(self.state.update(), False)
-
-    
