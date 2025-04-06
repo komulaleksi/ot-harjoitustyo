@@ -47,3 +47,45 @@ class TestScoring(unittest.TestCase):
         score = self.scoring.sixes(dice.get_dice())
 
         self.assertEqual(score, 12)
+
+    def test_scoring_one_pair_calculates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([1, 2, 3, 3, 3])
+        score = self.scoring.one_pair(dice.get_dice())
+
+        self.assertEqual(score, 6)
+
+    def test_scoring_two_pairs_calculates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([2, 2, 3, 3, 3])
+        score = self.scoring.two_pairs(dice.get_dice())
+
+        self.assertEqual(score, 10)
+
+    def test_scoring_three_of_a_kind_calculates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([1, 2, 3, 3, 3])
+        score = self.scoring.three_of_a_kind(dice.get_dice())
+
+        self.assertEqual(score, 9)
+
+    def test_scoring_four_of_a_kind_calculates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([3, 2, 3, 3, 3])
+        score = self.scoring.four_of_a_kind(dice.get_dice())
+
+        self.assertEqual(score, 12)
+
+    def test_scoring_yahtzee_calculates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([6, 6, 6, 6, 6])
+        score = self.scoring.yahzee(dice.get_dice())
+
+        self.assertEqual(score, 50)
+
+    def test_scoring_chance_calculates_score_correclty(self):
+        dice = Dice()
+        dice.set_dice([1, 2, 3, 3, 6])
+        score = self.scoring.chance(dice.get_dice())
+
+        self.assertEqual(score, 15)
