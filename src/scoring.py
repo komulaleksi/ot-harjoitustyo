@@ -92,6 +92,22 @@ class Scoring:
                 score = max(score, i*4)
 
         return score
+    
+    def small_straight(self, dice):
+        score = 0
+        dice.sort()
+        if dice == [1, 2, 3, 4, 5]:
+            score = 15
+
+        return score
+    
+    def large_straight(self, dice):
+        score = 0
+        dice.sort()
+        if dice == [2, 3, 4, 5, 6]:
+            score = 20
+
+        return score
 
     def yahtzee(self, dice):
         score = 0

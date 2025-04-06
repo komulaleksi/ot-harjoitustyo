@@ -16,6 +16,9 @@ class GameState():
     def set_score(self, score):
         self.score = score
 
+    def update_score(self, score):
+        self.score += score
+
     def next_round(self):
         self.round += 1
         self.throw_number = 1

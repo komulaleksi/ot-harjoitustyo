@@ -71,29 +71,33 @@ def start_no_gui(dice):
             command = input("Valitse pisteytyskategoria: ").lower()
 
             if command == "ykköset":
-                state.set_score(scoring.ones(dice.get_dice()))
+                state.update_score(scoring.ones(dice.get_dice()))
             elif command == "kakkoset":
-                state.set_score(scoring.twos(dice.get_dice()))
+                state.update_score(scoring.twos(dice.get_dice()))
             elif command == "kolmoset":
-                state.set_score(scoring.threes(dice.get_dice()))
+                state.update_score(scoring.threes(dice.get_dice()))
             elif command == "neloset":
-                state.set_score(scoring.fours(dice.get_dice()))
+                state.update_score(scoring.fours(dice.get_dice()))
             elif command == "viitoset":
-                state.set_score(scoring.fives(dice.get_dice()))
+                state.update_score(scoring.fives(dice.get_dice()))
             elif command == "kuutoset":
-                state.set_score(scoring.sixes(dice.get_dice()))
+                state.update_score(scoring.sixes(dice.get_dice()))
             elif command == "yksi pari":
-                state.set_score(scoring.one_pair(dice.get_dice()))
+                state.update_score(scoring.one_pair(dice.get_dice()))
             elif command == "kaksi paria":
-                state.set_score(scoring.two_pairs(dice.get_dice()))
+                state.update_score(scoring.two_pairs(dice.get_dice()))
             elif command == "kolmoisluku":
-                state.set_score(scoring.three_of_a_kind(dice.get_dice()))
+                state.update_score(scoring.three_of_a_kind(dice.get_dice()))
             elif command == "nelosluku":
-                state.set_score(scoring.four_of_a_kind(dice.get_dice()))
+                state.update_score(scoring.four_of_a_kind(dice.get_dice()))
+            elif command == "pieni suora":
+                state.update_score(scoring.small_straight(dice.get_dice()))
+            elif command == "suuri suora":
+                state.update_score(scoring.large_straight(dice.get_dice()))
             elif command == "sattuma":
-                state.set_score(scoring.chance(dice.get_dice()))
+                state.update_score(scoring.chance(dice.get_dice()))
             elif command == "yatzy":
-                state.set_score(scoring.yahtzee(dice.get_dice()))
+                state.update_score(scoring.yahtzee(dice.get_dice()))
 
             dice.reset_dice()
             clear()

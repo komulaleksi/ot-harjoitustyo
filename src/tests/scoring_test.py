@@ -76,11 +76,25 @@ class TestScoring(unittest.TestCase):
         score = self.scoring.four_of_a_kind(dice.get_dice())
 
         self.assertEqual(score, 12)
+    
+    def test_scoring_small_straight_calculates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([3, 2, 4, 5, 1])
+        score = self.scoring.small_straight(dice.get_dice())
+
+        self.assertEqual(score, 15)
+
+    def test_scoring_large_straight_calculates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([3, 2, 4, 5, 6])
+        score = self.scoring.large_straight(dice.get_dice())
+
+        self.assertEqual(score, 20)
 
     def test_scoring_yahtzee_calculates_score_correctly(self):
         dice = Dice()
         dice.set_dice([6, 6, 6, 6, 6])
-        score = self.scoring.yahzee(dice.get_dice())
+        score = self.scoring.yahtzee(dice.get_dice())
 
         self.assertEqual(score, 50)
 
