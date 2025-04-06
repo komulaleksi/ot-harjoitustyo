@@ -54,7 +54,13 @@ def start_no_gui(dice):
             "Kolmoset \n"
             "Neloset \n"
             "Viitoset \n"
-            "Kuutoset \n")
+            "Kuutoset \n"
+            "Yksi pari \n"
+            "Kaksi paria \n"
+            "Kolmoisluku \n"
+            "Nelosluku \n"
+            "Sattuma \n"
+            "Yatzy \n")
             
             command = input("Valitse pisteytyskategoria: ").lower()
 
@@ -70,7 +76,19 @@ def start_no_gui(dice):
                 state.set_score(scoring.fives(dice.get_dice()))
             elif command == "kuutoset":
                 state.set_score(scoring.sixes(dice.get_dice()))
-            
+            elif command == "yksi pari":
+                state.set_score(scoring.one_pair(dice.get_dice()))
+            elif command == "kaksi paria":
+                state.set_score(scoring.two_pairs(dice.get_dice()))
+            elif command == "kolmoisluku":
+                state.set_score(scoring.three_of_a_kind(dice.get_dice()))
+            elif command == "nelosluku":
+                state.set_score(scoring.four_of_a_kind(dice.get_dice()))
+            elif command == "sattuma":
+                state.set_score(scoring.chance(dice.get_dice()))
+            elif command == "yatzy":
+                state.set_score(scoring.yahtzee(dice.get_dice()))
+
             dice.reset_dice()
             clear()
     
