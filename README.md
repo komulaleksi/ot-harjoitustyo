@@ -6,7 +6,7 @@ Tarkoitus on tehdä versio **Yatzy** pelistä, jossa tarkoitus on saada *viittä
 2. Käynnistä ohjelma komennolla *poetry run invoke start*
 - Ohjelmaa voi testata komennolla *poetry run invoke test*
 - Testikattavuusraportin saa luotua komennolla *poetry run invoke coverage-report*
-- Pylintin laatutarkastuksen voi suorittaa komennolla *poetry run invoke pylint*
+- Pylintin laatutarkastuksen voi suorittaa komennolla *poetry run invoke lint*
 - Koodin voi automaattisesti formatoida komennolla *poetry run invoke format*
 
 ## Dokumentaatio
