@@ -2,6 +2,8 @@ import random
 
 
 class Dice:
+    # TODO make it possible to change dice and diceheld values
+    # when initizalising for debug and testing purposes
     def __init__(self):
         self.dice = [1, 1, 1, 1, 1]
         self.dieheld = {1: False,
@@ -40,3 +42,10 @@ class Dice:
             self.dieheld[status] = False
 
         self.throw_dice()
+
+    def all_dice_held(self):
+        for i in range(1, 6):
+            if self.dieheld[i] == False:
+                return False
+            
+        return True

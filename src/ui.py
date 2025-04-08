@@ -51,6 +51,9 @@ def start_no_gui(dice):
         else:
             print("Väärä komento.\n")
 
+        if dice.all_dice_held():
+            state.set_throw(3)
+
         if state.update() == True:
             clear()
             print(f"Heitto #3: {dice}")
