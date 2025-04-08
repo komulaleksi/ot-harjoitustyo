@@ -8,3 +8,4 @@
 | 1.4 | 2 | Bugien korjaamista, hienosäätöä ja testejä |
 | 3.4 | 2 | Lisätty lisää pisteytysvaihtoehtoja ja luotu niille testejä |
 | 6.4 | 1 | Koodin formatointia ja pylintin ilmoittamien virheiden korjaamista |
+| 8.4 | 1 | Parannettu nopan toiminnallisuutta ja bugikorjauksia |
