@@ -2,6 +2,7 @@ import os
 from tkinter import Tk
 from gamestate import GameState
 from scoring import Scoring
+from file_reader import FileReader
 
 # TODO Graafinen käyttöliittymä
 
@@ -19,6 +20,7 @@ def start_no_gui(dice):
 
     state = GameState()
     scoring = Scoring()
+    file_reader = FileReader()
 
     while state.get_round() <= 13:  # Peli kestää 13 kierrosta
         print("Syötä komento:")
@@ -107,10 +109,11 @@ def start_no_gui(dice):
 
     # TODO tulosnäkymä
     print(f"Lopputulos: {state.get_score()}")
+    name = input("Kirjoita nimesi: ")
+    final_score = [[name, state.get_score()]]
+    file_reader.write_score(final_score)
     input("Paina enter poistuaksesi")
 
 # Tyhjentää terminaalin
-
-
 def clear():
     os.system("clear")
