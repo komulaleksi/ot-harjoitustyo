@@ -8,9 +8,9 @@ Tarkoitus on tehdä versio [**Yatzy**](https://en.wikipedia.org/wiki/Yahtzee) pe
     - Joka kierroksella käyttäjä heittää viittä noppaa kolme eri kertaa **(tehty)**
     - Käyttäjä voi lukita haluamallaan tavalla 0-5 noppaa, jolloin niitä ei arvota uudestaan seuraavilla heitoilla **(tehty)**
     - Kolmen heiton jälkeen käyttäjä voi tallentaa saadun pistetuloksen yhteen kategoriaan riippuen heittojen lopputuloksesta **(tehty)**
-- Käyttäjä voi tallentaa pelin lopuksi saadun pistetuloksen taulukkoon omalla nimimerkillään
-    - Taulukoon on tallennettu 10 parasta pistetulosta
-    - Käyttäjällä voi olla monta tulosta samalla nimimerkillä
+- Käyttäjä voi tallentaa pelin lopuksi saadun pistetuloksen taulukkoon omalla nimimerkillään **(tehty)**
+    - Taulukoon on tallennettu 10 parasta pistetulosta **(tehty)**
+    - Käyttäjällä voi olla monta tulosta samalla nimimerkillä **(tehty)**
 
 ## Jatkokehitysideoita
 - Hienompi graafinen liittymä

@@ -9,3 +9,5 @@
 | 3.4 | 2 | Lisätty lisää pisteytysvaihtoehtoja ja luotu niille testejä |
 | 6.4 | 1 | Koodin formatointia ja pylintin ilmoittamien virheiden korjaamista |
 | 8.4 | 1 | Parannettu nopan toiminnallisuutta ja bugikorjauksia |
+| 11.4 | 1 | Luotu alustava tiedostonlukija tallentamaan huipputuloksia tiedostoon |
+| 14.4 | 3 | Saatu huipputulosten tallennus ja tulostus toimimaan ja hienosäädetty pisteytyskategorioita |
