@@ -112,6 +112,9 @@ def start_no_gui(dice):
     name = input("Kirjoita nimesi: ")
     final_score = [[name, state.get_score()]]
     file_reader.write_score(final_score)
+
+    clear()
+    file_reader.print_score()
     input("Paina enter poistuaksesi")
 
 # Tyhjentää terminaalin
