@@ -22,7 +22,7 @@ def start_no_gui(dice):
     scoring = Scoring()
     file_reader = FileReader()
 
-    while state.get_round() <= 13:  # Peli kestää 13 kierrosta
+    while state.get_round() <= 12:  # Peli kestää 13 kierrosta. Tällä hetkellä täyskäsi ei ole toiminnassa, joten kierroksia on vain 12
         print("Syötä komento:")
         print("[r:heitä noppia] [h:lukitse/vapauta noppa] [q:poistu]\n")
         print(f"Pisteet: {state.get_score()}")
@@ -58,51 +58,87 @@ def start_no_gui(dice):
 
         if state.update() == True:
             clear()
-            print(f"Heitto #3: {dice}")
-            print("Pisteytyskategoriat: \n"
-                  "Ykköset \n"
-                  "Kakkoset \n"
-                  "Kolmoset \n"
-                  "Neloset \n"
-                  "Viitoset \n"
-                  "Kuutoset \n"
-                  "Yksi pari \n"
-                  "Kaksi paria \n"
-                  "Kolmoisluku \n"
-                  "Nelosluku \n"
-                  "Sattuma \n"
-                  "Yatzy \n")
+            print_categories(dice)
+            state.print_scoring_method_used()
 
-            command = input("Valitse pisteytyskategoria: ").lower()
+            # Hiemän tönkkö tapa, mutta GUI versio korvaa tämän kohta
+            while True:
+                command = input("Valitse pisteytyskategoria: ").lower()
 
-            if command == "ykköset":
-                state.update_score(scoring.ones(dice.get_dice()))
-            elif command == "kakkoset":
-                state.update_score(scoring.twos(dice.get_dice()))
-            elif command == "kolmoset":
-                state.update_score(scoring.threes(dice.get_dice()))
-            elif command == "neloset":
-                state.update_score(scoring.fours(dice.get_dice()))
-            elif command == "viitoset":
-                state.update_score(scoring.fives(dice.get_dice()))
-            elif command == "kuutoset":
-                state.update_score(scoring.sixes(dice.get_dice()))
-            elif command == "yksi pari":
-                state.update_score(scoring.one_pair(dice.get_dice()))
-            elif command == "kaksi paria":
-                state.update_score(scoring.two_pairs(dice.get_dice()))
-            elif command == "kolmoisluku":
-                state.update_score(scoring.three_of_a_kind(dice.get_dice()))
-            elif command == "nelosluku":
-                state.update_score(scoring.four_of_a_kind(dice.get_dice()))
-            elif command == "pieni suora":
-                state.update_score(scoring.small_straight(dice.get_dice()))
-            elif command == "suuri suora":
-                state.update_score(scoring.large_straight(dice.get_dice()))
-            elif command == "sattuma":
-                state.update_score(scoring.chance(dice.get_dice()))
-            elif command == "yatzy":
-                state.update_score(scoring.yahtzee(dice.get_dice()))
+                if command == "ykköset" and state.get_scoring_method_used("ykköset") == False:
+                    score = scoring.ones(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("ykköset", score)
+                    break
+                elif command == "kakkoset" and state.get_scoring_method_used("kakkoset") == False:
+                    score = scoring.twos(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("kakkoset", score)
+                    break
+                elif command == "kolmoset" and state.get_scoring_method_used("kolmoset") == False:
+                    score = scoring.threes(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("kolmoset", score)
+                    break
+                elif command == "neloset" and state.get_scoring_method_used("neloset") == False:
+                    score = scoring.fours(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("neloset", score)
+                    break
+                elif command == "viitoset" and state.get_scoring_method_used("viitoset") == False:
+                    score = scoring.fives(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("viitoset", score)
+                    break
+                elif command == "kuutoset" and state.get_scoring_method_used("kuutoset") == False:
+                    score = scoring.sixes(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("kuutoset", score)
+                    break
+                elif command == "yksi pari" and state.get_scoring_method_used("yksi pari") == False:
+                    score = scoring.one_pair(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("yksi pari", score)
+                    break
+                elif command == "kaksi paria" and state.get_scoring_method_used("kaksi paria") == False:
+                    score = scoring.two_pairs(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("kaksi paria", score)
+                    break
+                elif command == "kolmoisluku" and state.get_scoring_method_used("kolmoisluku") == False:
+                    score = scoring.three_of_a_kind(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("kolmoisluku", score)
+                    break
+                elif command == "nelosluku" and state.get_scoring_method_used("nelosluku") == False:
+                    score = scoring.four_of_a_kind(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("nelosluku", score)
+                    break
+                elif command == "pieni suora" and state.get_scoring_method_used("pieni suora") == False:
+                    score = scoring.small_straight(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("pieni suora", score)
+                    break
+                elif command == "suuri suora" and state.get_scoring_method_used("suuri suora") == False:
+                    score = scoring.large_straight(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("suuri suora", score)
+                    break
+                elif command == "sattuma" and state.get_scoring_method_used("sattuma") == False:
+                    score = scoring.chance(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("sattuma", score)
+                    break
+                elif command == "yatzy" and state.get_scoring_method_used("yatzy") == False:
+                    score = scoring.yahtzee(dice.get_dice())
+                    state.update_score(score)
+                    state.use_scoring_method("yatzy", score)
+                    break
+                else:
+                    clear()
+                    print("Väärä pisteytyskategoria tai pisteytyskategoria on jo käytetty")
+                    print_categories(dice)
 
             dice.reset_dice()
             clear()
@@ -117,6 +153,23 @@ def start_no_gui(dice):
     file_reader.print_score()
     input("Paina enter poistuaksesi")
 
-# Tyhjentää terminaalin
+# Tyhjentää terminaalin (ei taida toimia Windowsilla tällä hetkellä)
 def clear():
     os.system("clear")
+
+def print_categories(dice):
+    print(f"Heitto #3: {dice}")
+    print("Pisteytyskategoriat: \n"
+                  "Ykköset \n"
+                  "Kakkoset \n"
+                  "Kolmoset \n"
+                  "Neloset \n"
+                  "Viitoset \n"
+                  "Kuutoset \n"
+                  "Yksi pari \n"
+                  "Kaksi paria \n"
+                  "Kolmoisluku \n"
+                  "Nelosluku \n"
+                  "Sattuma \n"
+                  "Yatzy \n")
+

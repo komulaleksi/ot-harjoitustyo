@@ -3,6 +3,20 @@ class GameState():
         self.round = round
         self.throw_number = throw_number
         self.score = score
+        self.scoring_method_used = {"ykköset": False,
+                                    "kakkoset": False,
+                                    "kolmoset": False,
+                                    "neloset": False,
+                                    "viitoset": False,
+                                    "kuutoset": False,
+                                    "yksi pari": False,
+                                    "kaksi paria": False,
+                                    "kolmoisluku": False,
+                                    "nelosluku": False,
+                                    "pieni suora": False,
+                                    "suuri suora": False,
+                                    "yatzy": False,
+                                    "sattuma": False}
 
     def get_round(self):
         return self.round
@@ -24,6 +38,15 @@ class GameState():
 
     def update_score(self, score):
         self.score += score
+
+    def get_scoring_method_used(self, method):
+        return self.scoring_method_used[method]
+    
+    def print_scoring_method_used(self):
+        print(self.scoring_method_used)
+
+    def use_scoring_method(self,method, score):
+        self.scoring_method_used[method] = score
 
     def next_round(self):
         self.round += 1

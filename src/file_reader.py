@@ -18,7 +18,7 @@ class FileReader():
             for row in reader:
                scores.append(row)
             
-            # Sort scores highest to lowest and save top 10 to top_scores
+            # Järjestää pisteet suurimmasta pienimpään ja tulostaa kymmenen parasta
             top_scores = sorted(scores, key=lambda x: int(x[1]), reverse=True)[0:10]
             for score in top_scores:
                 print(f"{score[0]}: {score[1]}")

@@ -120,3 +120,11 @@ class Scoring:
     def chance(self, dice):
         score = sum(dice)
         return score
+
+    # TODO
+    # def full_house(self, dice):
+    #     pair_score = self.one_pair(dice)
+    #     three_of_a_kind_score = self.three_of_a_kind(dice)
+    #     score = pair_score + three_of_a_kind_score
+
+    #     return score
