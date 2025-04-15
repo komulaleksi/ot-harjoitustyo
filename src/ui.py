@@ -22,7 +22,7 @@ def start_no_gui(dice):
     scoring = Scoring()
     file_reader = FileReader()
 
-    while state.get_round() <= 12:  # Peli kestää 13 kierrosta. Tällä hetkellä täyskäsi ei ole toiminnassa, joten kierroksia on vain 12
+    while state.get_round() <= 1:  # Peli kestää 13 kierrosta.
         print("Syötä komento:")
         print("[r:heitä noppia] [h:lukitse/vapauta noppa] [q:poistu]\n")
         print(f"Pisteet: {state.get_score()}")
@@ -59,7 +59,7 @@ def start_no_gui(dice):
         if state.update() == True:
             clear()
             print_categories(dice)
-            state.print_scoring_method_used()
+            print(state.return_scoring_method_used())
 
             # Hiemän tönkkö tapa, mutta GUI versio korvaa tämän kohta
             while True:

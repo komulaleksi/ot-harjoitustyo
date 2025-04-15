@@ -41,9 +41,9 @@ class GameState():
 
     def get_scoring_method_used(self, method):
         return self.scoring_method_used[method]
-    
-    def print_scoring_method_used(self):
-        print(self.scoring_method_used)
+
+    def return_scoring_method_used(self):
+        return self.scoring_method_used
 
     def use_scoring_method(self,method, score):
         self.scoring_method_used[method] = score

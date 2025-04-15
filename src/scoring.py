@@ -92,7 +92,7 @@ class Scoring:
                 score = max(score, i*4)
 
         return score
-    
+
     def small_straight(self, dice):
         score = 0
         dice.sort()
@@ -100,7 +100,7 @@ class Scoring:
             score = 15
 
         return score
-    
+
     def large_straight(self, dice):
         score = 0
         dice.sort()
@@ -120,7 +120,7 @@ class Scoring:
     def chance(self, dice):
         score = sum(dice)
         return score
-    
+
     def full_house(self, dice):
         score = 0
         for i in range(1, 7):
