@@ -120,11 +120,15 @@ class Scoring:
     def chance(self, dice):
         score = sum(dice)
         return score
+    
+    def full_house(self, dice):
+        score = 0
+        for i in range(1, 7):
+            # kolmoisluku
+            if dice.count(i) == 3:
+                score += i*3
+            # pari
+            elif dice.count(i) == 2:
+                score += i*2
 
-    # TODO
-    # def full_house(self, dice):
-    #     pair_score = self.one_pair(dice)
-    #     three_of_a_kind_score = self.three_of_a_kind(dice)
-    #     score = pair_score + three_of_a_kind_score
-
-    #     return score
+        return score

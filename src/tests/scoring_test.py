@@ -104,3 +104,10 @@ class TestScoring(unittest.TestCase):
         score = self.scoring.chance(dice.get_dice())
 
         self.assertEqual(score, 15)
+
+    def test_scoring_full_house_calculaates_score_correctly(self):
+        dice = Dice()
+        dice.set_dice([2, 4, 2, 4, 4])
+        score = self.scoring.full_house(dice.get_dice())
+
+        self.assertEqual(score, 16)
