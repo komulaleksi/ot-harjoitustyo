@@ -22,7 +22,7 @@ def start_no_gui(dice):
     scoring = Scoring()
     file_reader = FileReader()
 
-    while state.get_round() <= 1:  # Peli kestää 13 kierrosta.
+    while state.get_round() <= 13:  # Peli kestää 13 kierrosta.
         print("Syötä komento:")
         print("[r:heitä noppia] [h:lukitse/vapauta noppa] [q:poistu]\n")
         print(f"Pisteet: {state.get_score()}")
@@ -152,9 +152,9 @@ def start_no_gui(dice):
     file_reader.print_score()
     input("Paina enter poistuaksesi")
 
-# Tyhjentää terminaalin (ei taida toimia Windowsilla tällä hetkellä)
+# Tyhjentää terminaalin (pitäisi toimia myös Windowsilla, ei testattu)
 def clear():
-    os.system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
 
 def print_categories(dice):
     print(f"Heitto #3: {dice}")
