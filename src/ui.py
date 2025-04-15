@@ -61,7 +61,7 @@ def start_no_gui(dice):
             print_categories(dice)
             print(state.return_scoring_method_used())
 
-            # Hiemän tönkkö tapa, mutta GUI versio korvaa tämän kohta
+            # Hiemän tönkkö tapa, mutta GUI versio korvaa tämän tulevaisuudessa
             while True:
                 command = input("Valitse pisteytyskategoria: ").lower()
 
@@ -143,7 +143,6 @@ def start_no_gui(dice):
             dice.reset_dice()
             clear()
 
-    # TODO tulosnäkymä
     print(f"Lopputulos: {state.get_score()}")
     name = input("Kirjoita nimesi: ")
     final_score = [[name, state.get_score()]]

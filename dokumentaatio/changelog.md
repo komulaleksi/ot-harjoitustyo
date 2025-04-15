@@ -10,5 +10,13 @@
 - Kaikki pisteytysvaihtoehdot ovat nyt käytettävissä
   
 ### Bugikorjauksia
+
 - Kierros päättyy kolmen heiton jälkeen, eikä neljän
 - Nopat heitetään oikeaoppisesti uudelleen joka kierroksen jälkeen
+
+## Viikko 5
+
+- Pelin lopuksi voi nyt tallentaa saadut pisteet nimimerkillä
+- Pelin lopuksi näytetään top 10 parhaimmat pistesaldot
+- Jokaista pistekategoriaa voi nyt käyttää vain kerran
+- Viime viikolta unohtunut täyskäsi-pisteytyskategoria on nyt olemassa
