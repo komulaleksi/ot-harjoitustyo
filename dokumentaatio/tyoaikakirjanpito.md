@@ -12,3 +12,5 @@
 | 11.4 | 1 | Luotu alustava tiedostonlukija tallentamaan huipputuloksia tiedostoon |
 | 14.4 | 3 | Saatu huipputulosten tallennus ja tulostus toimimaan ja hienosäädetty pisteytyskategorioita |
 | 15.4 | 2 | Täyskäsi-pisteytyskategorian implementointi, testejä ja pylint korjauksia |
+
+Yhteensä: 19 tuntia.
