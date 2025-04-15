@@ -11,6 +11,6 @@
 | 8.4 | 1 | Parannettu nopan toiminnallisuutta ja bugikorjauksia |
 | 11.4 | 1 | Luotu alustava tiedostonlukija tallentamaan huipputuloksia tiedostoon |
 | 14.4 | 3 | Saatu huipputulosten tallennus ja tulostus toimimaan ja hienosäädetty pisteytyskategorioita |
-| 15.4 | 2 | Täyskäsi-pisteytyskategorian implementointi, testejä ja pylint korjauksia |
+| 15.4 | 3 | Täyskäsi-pisteytyskategorian implementointi, testejä ja pylint- ja bugikorjauksia|
 
-Yhteensä: 19 tuntia.
+Yhteensä: 20 tuntia.
