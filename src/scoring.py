@@ -67,13 +67,18 @@ class Scoring:
                 last_pair = i
 
         # Removes all die with the same value as the first pair
+        removed = 0
         while dice.count(last_pair) > 0:
             dice.remove(last_pair)
+            removed += 1
 
         # Finds and calculates score for the second pair
         for i in range(1, 7):
             if dice.count(i) >= 2:
                 score = max(score, i*2)
+
+        for i in range(removed):
+            dice.append(1)
 
         return score + temp_score
 
