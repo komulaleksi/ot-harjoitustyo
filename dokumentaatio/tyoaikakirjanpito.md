@@ -12,5 +12,6 @@
 | 11.4 | 1 | Luotu alustava tiedostonlukija tallentamaan huipputuloksia tiedostoon |
 | 14.4 | 3 | Saatu huipputulosten tallennus ja tulostus toimimaan ja hienosäädetty pisteytyskategorioita |
 | 15.4 | 3 | Täyskäsi-pisteytyskategorian implementointi, testejä ja pylint- ja bugikorjauksia|
+| 20.4 | 3 | Alustettu graafista käyttöliittymää tkinterillä
 
-Yhteensä: 20 tuntia.
+Yhteensä: 23 tuntia.
