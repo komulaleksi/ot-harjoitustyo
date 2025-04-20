@@ -1,20 +1,59 @@
 import os
-from tkinter import Tk
+import tkinter as tk
+from tkinter import Tk, ttk
 from gamestate import GameState
 from scoring import Scoring
 from file_reader import FileReader
 
 # TODO Graafinen käyttöliittymä
+class UI:
+    def __init__(self, dice):
+        self._root = Tk()
+        self._root.geometry("300x300")
+        self._root.title("YatzyGame")
+        self.dice = dice
+        self.gamestate = GameState()
+        self.scoring = Scoring()
+        self.file_reader = FileReader()
 
+        self.info = tk.StringVar(self._root, f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
+        self.current_dice = tk.StringVar(self._root, self.dice)
+    def start(self):
+        info_label = tk.Label(master=self._root, textvariable=self.info)
+        info_label.config(font=("Arial", 25))
+        dice_label = tk.Label(master=self._root, textvariable=self.current_dice)
+        dice_label.config(font=("Arial", 25))
+        start_button = tk.Button(master=self._root, text="Heitä", command=self.throw_button_click)
+        lock_one_check = tk.Checkbutton(master=self._root, text="1")
+        lock_two_check = tk.Checkbutton(master=self._root, text="2")
+        lock_three_check = tk.Checkbutton(master=self._root, text="3")
+        lock_four_check = tk.Checkbutton(master=self._root, text="4")
+        lock_five_check = tk.Checkbutton(master=self._root, text="5")
+        lock_six_check = tk.Checkbutton(master=self._root, text="6")
+        quit_button = tk.Button(master=self._root, text="Poistu", command=self._root.destroy)
 
-def start(dice):
-    window = Tk()
-    window.title("YatzyGame")
-    window.mainloop()
+        info_label.grid(row=0, column=0, columnspan=6)
+        dice_label.grid(row=1, column=0, columnspan=6)
+        lock_one_check.grid(row=2, column=0)
+        lock_two_check.grid(row=2, column=1)
+        lock_three_check.grid(row=2, column=2)
+        lock_four_check.grid(row=2, column=3)
+        lock_five_check.grid(row=2, column=4)
+        lock_six_check.grid(row=2, column=5)
+        start_button.grid(row=3, column=0, columnspan=6)
+        quit_button.grid(row=4, column=0, columnspan=6)
+
+        self._root.mainloop()
+
+    def throw_button_click(self):
+        self.dice.throw_dice()
+        self.gamestate.next_throw()
+        self.gamestate.update()
+        self.info.set(f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
+        self.current_dice.set(self.dice)
+        print(self.dice)
 
 # Väliaikainen peruskäyttöliittymä terminaalissa
-
-
 def start_no_gui(dice):
     clear()
 
