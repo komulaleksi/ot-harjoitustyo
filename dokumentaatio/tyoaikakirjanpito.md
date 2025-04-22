@@ -11,7 +11,8 @@
 | 8.4 | 1 | Parannettu nopan toiminnallisuutta ja bugikorjauksia |
 | 11.4 | 1 | Luotu alustava tiedostonlukija tallentamaan huipputuloksia tiedostoon |
 | 14.4 | 3 | Saatu huipputulosten tallennus ja tulostus toimimaan ja hienosäädetty pisteytyskategorioita |
-| 15.4 | 3 | Täyskäsi-pisteytyskategorian implementointi, testejä ja pylint- ja bugikorjauksia|
-| 20.4 | 3 | Alustettu graafista käyttöliittymää tkinterillä
+| 15.4 | 3 | Täyskäsi-pisteytyskategorian implementointi, testejä ja pylint- ja bugikorjauksia |
+| 20.4 | 3 | Alustettu graafista käyttöliittymää tkinterillä |
+| 21.4 | 2 | Saatu pisteytyskategoriat toimimaan guissa |
 
 Yhteensä: 23 tuntia.

@@ -45,7 +45,7 @@ class GameState():
     def return_scoring_method_used(self):
         return self.scoring_method_used
 
-    def use_scoring_method(self,method, score):
+    def use_scoring_method(self, method, score):
         self.scoring_method_used[method] = score
 
     def next_round(self):
@@ -56,7 +56,7 @@ class GameState():
         self.throw_number += 1
 
     def update(self):
-        if self.throw_number >= 3:
+        if self.throw_number > 3:
             self.throw_number = 1
             self.round += 1
             return True
