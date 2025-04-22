@@ -13,7 +13,7 @@ Tarkoitus on tehdä versio [**Yatzy**](https://en.wikipedia.org/wiki/Yahtzee) pe
     - Käyttäjällä voi olla monta tulosta samalla nimimerkillä **(tehty)**
 
 ## Jatkokehitysideoita
-- Hienompi graafinen liittymä
+- Hienompi graafinen liittymä **(osittain tehty)**
 - Kenties mahdollisuus pelata kaksinpeliä
     - Tällöin vuoro siirtyisi jokaisen kierrosen jälkeen toiselle käyttäjälle, joka mahdollistaisi samanaikaisen kilpailun.
 - Pelin sisäinen ohjekirja/pisteytystaulukko

@@ -90,7 +90,8 @@ class GameState():
             method (Str): Name of the scoring method to be checked.
 
         Returns:
-            Int: returns score saved to the scoring method. Defaults to False/0 if scoring method is not used.
+            Int: returns score saved to the scoring method.
+            Defaults to False/0 if scoring method is not used.
         """
         return self.scoring_method_used[method]
 

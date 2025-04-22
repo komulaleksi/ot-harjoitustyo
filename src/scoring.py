@@ -1,6 +1,6 @@
 class Scoring:
-    """A class that checks whether the dice fullfill the requirements of each scoring method and returns round score to be added to the
-    score total.
+    """A class that checks whether the dice fullfill the requirements of each scoring method
+    and returns round score to be added to the score total.
     """
     def ones(self, dice):
         score = 0

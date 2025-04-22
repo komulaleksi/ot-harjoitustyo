@@ -20,3 +20,8 @@
 - Pelin lopuksi näytetään top 10 parhaimmat pistesaldot
 - Jokaista pistekategoriaa voi nyt käyttää vain kerran
 - Viime viikolta unohtunut täyskäsi-pisteytyskategoria on nyt olemassa
+
+## Viikko 6
+
+- Graafinen käyttöliittymä on nyt olemassa
+- GUIssa on suurin osa toiminnallisuudesta poislukien pisteiden tallennus
