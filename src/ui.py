@@ -157,7 +157,7 @@ class UI:
             self.throw_button_click()
             self.scoring_choice_list.remove(self.scoring_combobox.get())
             self.scoring_combobox = ttk.Combobox(master=self._root, values=self.scoring_choice_list)
-            self.scoring_combobox.grid(row=4, column=0, columnspan=5)
+            self.scoring_combobox.grid(row=4, column=0, columnspan=4)
             self.scoring_combobox.set("Valitse pisteytyskategoria")
         else:
             print("Ei valittu")

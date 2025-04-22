@@ -81,7 +81,7 @@ class testGameState(unittest.TestCase):
         self.assertEqual(self.state.get_throw(), 2)
 
     def test_update_resets_throw_after_three_throws(self):
-        state = GameState(1, 3)
+        state = GameState(1, 4)
         state.update()
         self.assertEqual(state.get_throw(), 1)
 
@@ -91,12 +91,12 @@ class testGameState(unittest.TestCase):
         self.assertNotEqual(state.get_throw(), 1)
 
     def test_update_updates_round_after_three_throws(self):
-        state = GameState(1, 3)
+        state = GameState(1, 4)
         state.update()
         self.assertEqual(state.get_round(), 2)
 
     def test_update_returns_true_after_three_throws(self):
-        state = GameState(1, 3)
+        state = GameState(1, 4)
         self.assertEqual(state.update(), True)
 
     def test_update_returns_false_before_three_throws(self):

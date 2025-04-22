@@ -1,5 +1,5 @@
 from dice import Dice
-import ui
+#import ui
 from ui import UI
 
 
