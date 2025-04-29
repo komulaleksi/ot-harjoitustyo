@@ -14,5 +14,6 @@
 | 15.4 | 3 | Täyskäsi-pisteytyskategorian implementointi, testejä ja pylint- ja bugikorjauksia |
 | 20.4 | 3 | Alustettu graafista käyttöliittymää tkinterillä |
 | 21.4 | 2 | Saatu pisteytyskategoriat toimimaan guissa |
+| 29.4 | 1 | Piisteet näytetään GUIssa |
 
-Yhteensä: 23 tuntia.
+Yhteensä: 24 tuntia.

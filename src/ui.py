@@ -15,6 +15,7 @@ class UI:
         self.gamestate = GameState()
         self.scoring = Scoring()
         self.file_reader = FileReader()
+        self.current_score = tk.StringVar(self._root, f"Pisteet: {self.gamestate.get_score()}")
 
         self.info = tk.StringVar(self._root, f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
         self.current_dice = tk.StringVar(self._root, self.dice)
@@ -44,6 +45,7 @@ class UI:
         self.lock_five_check = tk.Checkbutton(master=self._root, text="5", variable=self.dice_five_held, onvalue=True, offvalue=False)
 
         quit_button = tk.Button(master=self._root, text="Poistu", command=self._root.destroy)
+        self.score_label = tk.Label(master=self._root, textvariable=self.current_score)
 
         info_label.grid(row=0, column=0, columnspan=5)
         dice_label.grid(row=1, column=0, columnspan=5)
@@ -59,6 +61,7 @@ class UI:
         self.scoring_button.grid(row=4, column=4)
 
         quit_button.grid(row=5, column=0, columnspan=5)
+        self.score_label.grid(row=6, column=0, columnspan=5)
 
         self._root.mainloop()
 
@@ -162,6 +165,7 @@ class UI:
         else:
             print("Ei valittu")
 
+        self.current_score.set(f"Pisteet: {self.gamestate.get_score()}")
         print(self.gamestate.get_score())
 
 # Väliaikainen peruskäyttöliittymä terminaalissa
