@@ -10,7 +10,8 @@ Tarkoitus on tehdä versio **Yatzy** pelistä, jossa tarkoitus on saada *viittä
 - Koodin voi automaattisesti formatoida komennolla *poetry run invoke format*
 
 ## Releaset
-[Viikko 5](https://github.com/komulaleksi/ot-harjoitustyo/releases/tag/viikko5)
+[Viikko 5](https://github.com/komulaleksi/ot-harjoitustyo/releases/tag/viikko5)  
+[Viikko 6](https://github.com/komulaleksi/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Dokumentaatio
 [Vaativuusmäärittely](https://github.com/komulaleksi/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
