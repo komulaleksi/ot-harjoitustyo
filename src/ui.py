@@ -26,7 +26,7 @@ class UI:
         self.dice_five_held = tk.BooleanVar()
 
         self.scoring_choice_list = ["Valitse pisteytyskategoria", "Ykköset", "Kakkoset", "Kolmoset", "Neloset", "Viitoset", "Kuutoset",
-                                    "Yksi pari", "Kaksi paria", "Kolmoisluku", "Nelosluku", "Pieni suora", "Suuri suora", "Sattuma", "Yatzy"]
+                                    "Yksi pari", "Kaksi paria", "Kolmoisluku", "Nelosluku", "Pieni suora", "Suuri suora", "Täyskäsi", "Sattuma", "Yatzy"]
     def start(self):
         info_label = tk.Label(master=self._root, textvariable=self.info)
         info_label.config(font=("Arial", 25))
@@ -144,6 +144,10 @@ class UI:
             score = self.scoring.large_straight(self.dice.get_dice())
             self.gamestate.update_score(score)
             self.gamestate.use_scoring_method("suuri suora", score)
+        elif scoring_category == "täyskäsi" and self.gamestate.get_scoring_method_used("täyskäsi") == False:
+            score = self.scoring.full_house(self.dice.get_dice())
+            self.gamestate.update_score(score)
+            self.gamestate.use_scoring_method("täyskäsi", score)
         elif scoring_category == "sattuma" and self.gamestate.get_scoring_method_used("sattuma") == False:
             score = self.scoring.chance(self.dice.get_dice())
             self.gamestate.update_score(score)

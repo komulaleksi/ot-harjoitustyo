@@ -25,6 +25,7 @@ class GameState():
                                     "pieni suora": False,
                                     "suuri suora": False,
                                     "yatzy": False,
+                                    "täyskäsi": False,
                                     "sattuma": False}
 
     def get_round(self):
