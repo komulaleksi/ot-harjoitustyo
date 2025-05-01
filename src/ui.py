@@ -65,11 +65,12 @@ class UI:
 
         self._root.mainloop()
 
-    def throw_button_click(self):
+    def throw_button_click(self, force_update=False):
+        self.force_update = force_update
         self.lock_selected_dice()
         self.dice.throw_dice()
         self.gamestate.next_throw()
-        if self.gamestate.update():
+        if self.gamestate.update(self.force_update):
             self.dice_one_held.set(False)
             self.dice_two_held.set(False)
             self.dice_three_held.set(False)
@@ -161,7 +162,7 @@ class UI:
             self.gamestate.use_scoring_method(scoring_category, True)
             print(f"Valittu pisteytyskategoria {scoring_category}")
             self.dice.reset_dice()
-            self.throw_button_click()
+            self.throw_button_click(True)
             self.scoring_choice_list.remove(self.scoring_combobox.get())
             self.scoring_combobox = ttk.Combobox(master=self._root, values=self.scoring_choice_list)
             self.scoring_combobox.grid(row=4, column=0, columnspan=4)

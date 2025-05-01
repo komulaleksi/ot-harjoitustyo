@@ -114,8 +114,8 @@ class GameState():
     def next_throw(self):
         self.throw_number += 1
 
-    def update(self):
-        if self.throw_number > 3:
+    def update(self, force_update=False):
+        if self.throw_number > 3 or force_update:
             self.throw_number = 1
             self.round += 1
             return True
