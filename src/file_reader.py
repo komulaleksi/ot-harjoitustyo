@@ -26,5 +26,8 @@ class FileReader():
 
             # Järjestää pisteet suurimmasta pienimpään ja tulostaa kymmenen parasta
             top_scores = sorted(scores, key=lambda x: int(x[1]), reverse=True)[0:10]
+            top_scores_string = ""
             for score in top_scores:
+                top_scores_string += f"{score[0]}: {score[1]} \n"
                 print(f"{score[0]}: {score[1]}")
+            return top_scores_string

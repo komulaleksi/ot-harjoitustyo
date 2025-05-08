@@ -1,6 +1,6 @@
 import os
 import tkinter as tk
-from tkinter import Tk, ttk
+from tkinter import Tk, ttk, Entry
 from gamestate import GameState
 from scoring import Scoring
 from file_reader import FileReader
@@ -63,7 +63,29 @@ class UI:
         quit_button.grid(row=5, column=0, columnspan=5)
         self.score_label.grid(row=6, column=0, columnspan=5)
 
+        self.debug_button = tk.Button(master=self._root, text="Pisteet", command=self.open_score_window)
+        self.debug_button.grid(row=7, column=0)
+
         self._root.mainloop()
+
+    def open_score_window(self):
+        score_window = tk.Toplevel()
+        score_window.geometry("200x250")
+        score_window.title("YatzyGame - Pisteet")
+
+        scores = tk.StringVar(score_window, f"{self.file_reader.print_score()}")
+
+        final_score = tk.Label(master=score_window, textvariable=self.current_score)
+        player_name = Entry(score_window, textvariable=tk.StringVar(value="Nimimerkki"))
+        scores_label = tk.Label(master=score_window, textvariable=scores)
+        quit_button = tk.Button(master=score_window, text="Poistu", command=self._root.destroy)
+
+        final_score.grid(row=0, column=0)
+        player_name.grid(row=1, column=0)
+        scores_label.grid(row=2, column=0)
+        quit_button.grid(row=3, column=0)
+        score_window.focus()
+        score_window.grab_set()
 
     def throw_button_click(self, force_update=False):
         self.force_update = force_update
