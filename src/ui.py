@@ -16,6 +16,7 @@ class UI:
         self.scoring = Scoring()
         self.file_reader = FileReader()
         self.current_score = tk.StringVar(self._root, f"Pisteet: {self.gamestate.get_score()}")
+        self.player_name_button_clicked = False
 
         self.info = tk.StringVar(self._root, f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
         self.current_dice = tk.StringVar(self._root, self.dice)
@@ -78,23 +79,24 @@ class UI:
 
         final_score = tk.Label(master=score_window, textvariable=self.current_score)
         self.player_name_entry = Entry(score_window, textvariable=self.player_name)
-        player_name_button = tk.Button(master=score_window, text="Tallenna", command=self.player_name_button_click)
+        self.player_name_button = tk.Button(master=score_window, text="Tallenna", command=self.player_name_button_click)
         scores_label = tk.Label(master=score_window, textvariable=scores)
         quit_button = tk.Button(master=score_window, text="Poistu", command=self._root.destroy)
 
         final_score.grid(row=0, column=0, columnspan=2)
         self.player_name_entry.grid(row=1, column=0)
-        player_name_button.grid(row=1, column=1)
+        self.player_name_button.grid(row=1, column=1)
         scores_label.grid(row=2, column=0, columnspan=2)
         quit_button.grid(row=3, column=0, columnspan=2)
         score_window.focus()
         score_window.grab_set()
 
     def player_name_button_click(self):
-        name = self.player_name.get()
-        final_score = [[name, self.gamestate.get_score()]]
-        self.file_reader.write_score(final_score)
-        self._root.destroy()
+        if not self.player_name_button_clicked:
+            name = self.player_name.get()
+            final_score = [[name, self.gamestate.get_score()]]
+            self.file_reader.write_score(final_score)
+            self.player_name_button_clicked = True
 
     def throw_button_click(self, force_update=False):
         self.force_update = force_update
@@ -110,11 +112,12 @@ class UI:
             self.dice.reset_dice()
         self.info.set(f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
         self.current_dice.set(self.dice)
-        print(self.dice)
+
+        if self.gamestate.get_round() > 15:
+            self.open_score_window()
 
     def lock_selected_dice(self):
         if self.dice_one_held.get() is True and self.dice.get_status(1) is False:
-            print("locked die 1")
             self.dice.change_status(1)
         if self.dice_two_held.get() is True and self.dice.get_status(2) is False:
             self.dice.change_status(2)
