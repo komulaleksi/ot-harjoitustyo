@@ -15,5 +15,6 @@
 | 20.4 | 3 | Alustettu graafista käyttöliittymää tkinterillä |
 | 21.4 | 2 | Saatu pisteytyskategoriat toimimaan guissa |
 | 29.4 | 1 | Piisteet näytetään GUIssa |
+| 8.5 | 1 | Luotu lopputulos-näkymä |
 
-Yhteensä: 24 tuntia.
+Yhteensä: 25 tuntia.

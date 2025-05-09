@@ -70,22 +70,31 @@ class UI:
 
     def open_score_window(self):
         score_window = tk.Toplevel()
-        score_window.geometry("200x250")
+        score_window.geometry("300x300")
         score_window.title("YatzyGame - Pisteet")
 
         scores = tk.StringVar(score_window, f"{self.file_reader.print_score()}")
+        self.player_name = tk.StringVar(score_window, "Nimimerkki")
 
         final_score = tk.Label(master=score_window, textvariable=self.current_score)
-        player_name = Entry(score_window, textvariable=tk.StringVar(value="Nimimerkki"))
+        self.player_name_entry = Entry(score_window, textvariable=self.player_name)
+        player_name_button = tk.Button(master=score_window, text="Tallenna", command=self.player_name_button_click)
         scores_label = tk.Label(master=score_window, textvariable=scores)
         quit_button = tk.Button(master=score_window, text="Poistu", command=self._root.destroy)
 
-        final_score.grid(row=0, column=0)
-        player_name.grid(row=1, column=0)
-        scores_label.grid(row=2, column=0)
-        quit_button.grid(row=3, column=0)
+        final_score.grid(row=0, column=0, columnspan=2)
+        self.player_name_entry.grid(row=1, column=0)
+        player_name_button.grid(row=1, column=1)
+        scores_label.grid(row=2, column=0, columnspan=2)
+        quit_button.grid(row=3, column=0, columnspan=2)
         score_window.focus()
         score_window.grab_set()
+
+    def player_name_button_click(self):
+        name = self.player_name.get()
+        final_score = [[name, self.gamestate.get_score()]]
+        self.file_reader.write_score(final_score)
+        self._root.destroy()
 
     def throw_button_click(self, force_update=False):
         self.force_update = force_update
