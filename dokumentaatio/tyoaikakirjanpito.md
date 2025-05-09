@@ -16,5 +16,6 @@
 | 21.4 | 2 | Saatu pisteytyskategoriat toimimaan guissa |
 | 29.4 | 1 | Piisteet näytetään GUIssa |
 | 8.5 | 1 | Luotu lopputulos-näkymä |
+| 9.5 | 1.5 | Lopputulosnäkymän säätöä |
 
-Yhteensä: 25 tuntia.
+Yhteensä: 26.5 tuntia.

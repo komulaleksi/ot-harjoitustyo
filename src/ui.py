@@ -61,8 +61,8 @@ class UI:
         self.scoring_combobox.grid(row=4, column=0, columnspan=4)
         self.scoring_button.grid(row=4, column=4)
 
-        quit_button.grid(row=5, column=0, columnspan=5)
-        self.score_label.grid(row=6, column=0, columnspan=5)
+        self.score_label.grid(row=5, column=0, columnspan=5)
+        quit_button.grid(row=6, column=0, columnspan=5)
 
         self.debug_button = tk.Button(master=self._root, text="Pisteet", command=self.open_score_window)
         self.debug_button.grid(row=7, column=0)
@@ -78,6 +78,7 @@ class UI:
         self.player_name = tk.StringVar(score_window, "Nimimerkki")
 
         final_score = tk.Label(master=score_window, textvariable=self.current_score)
+        final_score.config(font=("Arial", 25))
         self.player_name_entry = Entry(score_window, textvariable=self.player_name)
         self.player_name_button = tk.Button(master=score_window, text="Tallenna", command=self.player_name_button_click)
         scores_label = tk.Label(master=score_window, textvariable=scores)
