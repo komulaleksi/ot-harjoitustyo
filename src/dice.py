@@ -50,3 +50,10 @@ class Dice:
                 return False
 
         return True
+    
+    def print_dice(self):
+        dice_string = "| "
+        for die in self.dice:
+            dice_string += f"{die} | "
+
+        return dice_string
