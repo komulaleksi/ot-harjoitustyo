@@ -17,6 +17,8 @@ class FileReader():
         if not os.path.exists(self.file_path):
             try:
                 os.mkdir(os.path.join(self.dirname, "data"))
+            except:
+                pass
             finally:
                 f = open(self.file_path, "x")
                 f.close()
