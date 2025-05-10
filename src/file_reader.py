@@ -15,8 +15,11 @@ class FileReader():
             self.file_path = file_path
 
         if not os.path.exists(self.file_path):
-            f = open(self.file_path, "x")
-            f.close()
+            try:
+                os.mkdir(os.path.join(self.dirname, "data"))
+            finally:
+                f = open(self.file_path, "x")
+                f.close()
 
     def write_score(self, score):
         with open(self.file_path, "a", newline="") as file:
