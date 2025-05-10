@@ -1,7 +1,5 @@
 from dice import Dice
-#import ui
 from ui import UI
-
 
 def main():
     dice = Dice()

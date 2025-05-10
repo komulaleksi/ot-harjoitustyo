@@ -89,6 +89,18 @@ class UI:
         score_window.focus()
         score_window.grab_set()
 
+    def __open_error_window(self, message):
+        error_window = tk.Toplevel()
+        error_window.geometry("180x60")
+        error_window.title("YatzyGame")
+
+        error_message_label = tk.Label(master=error_window, text=message)
+        error_message_label.config(font=("Arial", 15))
+        ok_button = tk.Button(master=error_window, text="OK", command=error_window.destroy)
+
+        error_message_label.grid(row=0, column=0)
+        ok_button.grid(row=5, column=0)
+
     def __player_name_button_click(self):
         if not self.player_name_button_clicked:
             name = self.player_name.get()
@@ -101,21 +113,23 @@ class UI:
 
     def __throw_button_click(self, force_update=False):
         self.force_update = force_update
-        self.__lock_selected_dice()
-        self.dice.throw_dice()
-        self.gamestate.next_throw()
-        if self.gamestate.update(self.force_update):
-            self.dice_one_held.set(False)
-            self.dice_two_held.set(False)
-            self.dice_three_held.set(False)
-            self.dice_four_held.set(False)
-            self.dice_five_held.set(False)
-            self.dice.reset_dice()
-        self.info.set(f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
-        self.current_dice.set(self.dice.print_dice())
 
-        if self.gamestate.get_round() > 15:
-            self.__open_score_window()
+        if self.gamestate.get_throw() < 3 or self.force_update:
+            self.__lock_selected_dice()
+            self.dice.throw_dice()
+            self.gamestate.next_throw()
+            if self.gamestate.update(self.force_update):
+                self.dice_one_held.set(False)
+                self.dice_two_held.set(False)
+                self.dice_three_held.set(False)
+                self.dice_four_held.set(False)
+                self.dice_five_held.set(False)
+                self.dice.reset_dice()
+            self.info.set(f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
+            self.current_dice.set(self.dice.print_dice())
+
+            if self.gamestate.get_round() > 15:
+                self.__open_score_window()
 
     def __lock_selected_dice(self):
         if self.dice_one_held.get() is True and self.dice.get_status(1) is False:
@@ -203,6 +217,6 @@ class UI:
             self.scoring_combobox.grid(row=4, column=0, columnspan=4)
             self.scoring_combobox.set("Valitse pisteytyskategoria")
         else:
-            print("Ei valittu")
+            self.__open_error_window("Valitse pisteytyskategoria")
 
         self.current_score.set(f"Pisteet: {self.gamestate.get_score()}")
