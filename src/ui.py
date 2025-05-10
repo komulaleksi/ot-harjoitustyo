@@ -100,6 +100,8 @@ class UI:
 
         error_message_label.grid(row=0, column=0)
         ok_button.grid(row=5, column=0)
+        error_window.focus()
+        error_window.grab_set()
 
     def __player_name_button_click(self):
         if not self.player_name_button_clicked:
