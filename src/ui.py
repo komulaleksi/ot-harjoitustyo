@@ -43,8 +43,9 @@ class UI:
         self.lock_four_check = tk.Checkbutton(master=self._root, text="4", variable=self.dice_four_held, onvalue=True, offvalue=False)
         self.lock_five_check = tk.Checkbutton(master=self._root, text="5", variable=self.dice_five_held, onvalue=True, offvalue=False)
 
-        quit_button = tk.Button(master=self._root, text="Poistu", command=self._root.destroy)
+        quit_button = tk.Button(master=self._root, text="Lopeta", command=self.__open_score_window)
         self.score_label = tk.Label(master=self._root, textvariable=self.current_score)
+        self.score_label.config(font=("Arial", 20))
 
         info_label.grid(row=0, column=0, columnspan=5)
         dice_label.grid(row=1, column=0, columnspan=5)
@@ -61,9 +62,6 @@ class UI:
 
         self.score_label.grid(row=5, column=0, columnspan=5)
         quit_button.grid(row=6, column=0, columnspan=5)
-
-        self.debug_button = tk.Button(master=self._root, text="Pisteet", command=self.__open_score_window)
-        self.debug_button.grid(row=7, column=0)
 
         self._root.mainloop()
 
@@ -208,4 +206,3 @@ class UI:
             print("Ei valittu")
 
         self.current_score.set(f"Pisteet: {self.gamestate.get_score()}")
-        print(self.gamestate.get_score())

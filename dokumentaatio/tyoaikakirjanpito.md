@@ -17,5 +17,5 @@
 | 29.4 | 1 | Piisteet näytetään GUIssa |
 | 8.5 | 1 | Luotu lopputulos-näkymä |
 | 9.5 | 1.5 | Lopputulosnäkymän säätöä |
-
-Yhteensä: 26.5 tuntia.
+| 9.5 | 1 | Docstring dokumentaatiota |
+Yhteensä: 27.5 tuntia.

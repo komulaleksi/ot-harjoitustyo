@@ -2,6 +2,8 @@ import os
 import csv
 
 class FileReader():
+    """Class that handles writing to and reading from scores.csv file.
+    """
     def __init__(self, dirname=None, file_path=None):
         if dirname is None:
             self.dirname = os.path.dirname(__file__)
@@ -17,6 +19,15 @@ class FileReader():
             writer = csv.writer(file)
             writer.writerows(score)
 
+    def read_score(self):
+        with open(self.file_path, "r") as file:
+            reader = csv.reader(file)
+            scores = []
+            for row in reader:
+                scores.append(row)
+
+        return scores
+
     def print_score(self):
         with open(self.file_path, "r") as file:
             reader = csv.reader(file)
@@ -29,5 +40,4 @@ class FileReader():
             top_scores_string = ""
             for score in top_scores:
                 top_scores_string += f"{score[0]}: {score[1]} \n"
-                print(f"{score[0]}: {score[1]}")
             return top_scores_string

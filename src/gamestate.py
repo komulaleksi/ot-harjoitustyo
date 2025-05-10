@@ -2,7 +2,7 @@ class GameState():
     """Class that keeps track of and updates the current gamestate.
     """
     def __init__(self, round=1, throw_number=1, score=0):
-        """Initialized the gamestate variables.
+        """Initializes the gamestate variables.
 
         Args:
             round (int, optional): Round number. Defaults to 1.
@@ -80,7 +80,7 @@ class GameState():
         """Adds to the current score total.
 
         Args:
-            score (Int): New points to be added to the score total.
+            score (int): New points to be added to the score total.
         """
         self.score += score
 
@@ -105,19 +105,36 @@ class GameState():
         return self.scoring_method_used
 
     def use_scoring_method(self, method, score):
+        """Sets scoring method from False to value in the score variable.
+
+        Args:
+            method (Str): String key of self.scroring_method_used.
+            score (int): Score value as determined for the selected method by class Scoring.
+        """
         self.scoring_method_used[method] = score
 
     def next_round(self):
+        """Increments round by one and resets throws.
+        """
         self.round += 1
         self.throw_number = 1
 
     def next_throw(self):
+        """Increments throws by one.
+        """
         self.throw_number += 1
 
     def update(self, force_update=False):
+        """Calls next_round() if current throw number exceeds 3.
+
+        Args:
+            force_update (bool, optional): Forces next_round() regardless of current throw number. Defaults to False.
+
+        Returns:
+            bool: Returns whether round was updated.
+        """
         if self.throw_number > 3 or force_update:
-            self.throw_number = 1
-            self.round += 1
+            self.next_round()
             return True
 
         return False

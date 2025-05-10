@@ -46,7 +46,8 @@ class testGameState(unittest.TestCase):
         self.assertEqual(self.state.get_scoring_method_used("ykköset"), False)
 
     def test_return_scoring_method_used_prints_correctly(self):
-        self.assertEqual(self.state.return_scoring_method_used(), {"ykköset": False,
+        self.assertEqual(self.state.return_scoring_method_used(), 
+                                    {"ykköset": False,
                                     "kakkoset": False,
                                     "kolmoset": False,
                                     "neloset": False,
@@ -59,6 +60,7 @@ class testGameState(unittest.TestCase):
                                     "pieni suora": False,
                                     "suuri suora": False,
                                     "yatzy": False,
+                                    "täyskäsi": False,
                                     "sattuma": False})
         
     def test_use_scoring_method_changes_method_to_true(self):
