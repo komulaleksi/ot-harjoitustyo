@@ -1,6 +1,7 @@
 import unittest
 from dice import Dice
 
+
 class testDice(unittest.TestCase):
     def setUp(self):
         self.dice = Dice()
@@ -44,7 +45,7 @@ class testDice(unittest.TestCase):
 
         self.dice.reset_dice()
         self.assertNotEqual(old_dice, self.dice.get_dice())
-        
+
     def test_all_dice_held_return_true_when_all_dice_held(self):
         self.dice.change_status(1)
         self.dice.change_status(2)

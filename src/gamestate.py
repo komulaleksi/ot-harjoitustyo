@@ -1,6 +1,7 @@
 class GameState():
     """Class that keeps track of and updates the current gamestate.
     """
+
     def __init__(self, round=1, throw_number=1, score=0):
         """Initializes the gamestate variables.
 
@@ -36,7 +37,7 @@ class GameState():
         """
         return self.round
 
-    def set_round(self,round):
+    def set_round(self, round):
         """Sets the current round.
 
         Args:
@@ -128,7 +129,8 @@ class GameState():
         """Calls next_round() if current throw number exceeds 3.
 
         Args:
-            force_update (bool, optional): Forces next_round() regardless of current throw number. Defaults to False.
+            force_update (bool, optional): Forces next_round() regardless of current throw number.
+            Defaults to False.
 
         Returns:
             bool: Returns whether round was updated.

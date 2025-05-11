@@ -4,9 +4,11 @@ from gamestate import GameState
 from scoring import Scoring
 from file_reader import FileReader
 
+
 class UI:
     """Handles generating and displaying UI elements.
     """
+
     def __init__(self, dice):
         self._root = Tk()
         self._root.geometry("300x300")
@@ -15,10 +17,12 @@ class UI:
         self.gamestate = GameState()
         self.scoring = Scoring()
         self.file_reader = FileReader()
-        self.current_score = tk.StringVar(self._root, f"Pisteet: {self.gamestate.get_score()}")
+        self.current_score = tk.StringVar(
+            self._root, f"Pisteet: {self.gamestate.get_score()}")
         self.player_name_button_clicked = False
 
-        self.info = tk.StringVar(self._root, f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
+        self.info = tk.StringVar(
+            self._root, f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
         self.current_dice = tk.StringVar(self._root, self.dice.print_dice())
         self.dice_one_held = tk.BooleanVar()
         self.dice_two_held = tk.BooleanVar()
@@ -28,27 +32,39 @@ class UI:
 
         self.scoring_choice_list = ["Valitse pisteytyskategoria", "Ykköset", "Kakkoset", "Kolmoset", "Neloset", "Viitoset", "Kuutoset",
                                     "Yksi pari", "Kaksi paria", "Kolmoisluku", "Nelosluku", "Pieni suora", "Suuri suora", "Täyskäsi", "Sattuma", "Yatzy"]
+
     def start(self):
         """Generates main window, where the game is played.
         """
         info_label = tk.Label(master=self._root, textvariable=self.info)
         info_label.config(font=("Arial", 30))
-        dice_label = tk.Label(master=self._root, textvariable=self.current_dice)
+        dice_label = tk.Label(
+            master=self._root, textvariable=self.current_dice)
         dice_label.config(font=("Arial", 35))
-        start_button = tk.Button(master=self._root, text="Heitä", command=self.__throw_button_click)
+        start_button = tk.Button(
+            master=self._root, text="Heitä", command=self.__throw_button_click)
 
-        self.scoring_combobox = ttk.Combobox(master=self._root, values=self.scoring_choice_list)
+        self.scoring_combobox = ttk.Combobox(
+            master=self._root, values=self.scoring_choice_list)
         self.scoring_combobox.set("Valitse pisteytyskategoria")
-        self.scoring_button = tk.Button(master=self._root, text="Valitse", command=self.__calculate_round_score)
+        self.scoring_button = tk.Button(
+            master=self._root, text="Valitse", command=self.__calculate_round_score)
 
-        self.lock_one_check = tk.Checkbutton(master=self._root, text="1", variable=self.dice_one_held, onvalue=True, offvalue=False)
-        self.lock_two_check = tk.Checkbutton(master=self._root, text="2", variable=self.dice_two_held, onvalue=True, offvalue=False)
-        self.lock_three_check = tk.Checkbutton(master=self._root, text="3", variable=self.dice_three_held, onvalue=True, offvalue=False)
-        self.lock_four_check = tk.Checkbutton(master=self._root, text="4", variable=self.dice_four_held, onvalue=True, offvalue=False)
-        self.lock_five_check = tk.Checkbutton(master=self._root, text="5", variable=self.dice_five_held, onvalue=True, offvalue=False)
+        self.lock_one_check = tk.Checkbutton(
+            master=self._root, text="1", variable=self.dice_one_held, onvalue=True, offvalue=False)
+        self.lock_two_check = tk.Checkbutton(
+            master=self._root, text="2", variable=self.dice_two_held, onvalue=True, offvalue=False)
+        self.lock_three_check = tk.Checkbutton(
+            master=self._root, text="3", variable=self.dice_three_held, onvalue=True, offvalue=False)
+        self.lock_four_check = tk.Checkbutton(
+            master=self._root, text="4", variable=self.dice_four_held, onvalue=True, offvalue=False)
+        self.lock_five_check = tk.Checkbutton(
+            master=self._root, text="5", variable=self.dice_five_held, onvalue=True, offvalue=False)
 
-        quit_button = tk.Button(master=self._root, text="Lopeta", command=self.__open_score_window)
-        self.score_label = tk.Label(master=self._root, textvariable=self.current_score)
+        quit_button = tk.Button(
+            master=self._root, text="Lopeta", command=self.__open_score_window)
+        self.score_label = tk.Label(
+            master=self._root, textvariable=self.current_score)
         self.score_label.config(font=("Arial", 20))
 
         info_label.grid(row=0, column=0, columnspan=5)
@@ -74,16 +90,22 @@ class UI:
         score_window.geometry("300x300")
         score_window.title("YatzyGame - Pisteet")
 
-        self.scores_stringvar = tk.StringVar(score_window, f"{self.file_reader.print_score()}")
+        self.scores_stringvar = tk.StringVar(
+            score_window, f"{self.file_reader.print_score()}")
         self.player_name = tk.StringVar(score_window, "Nimimerkki")
 
         self.current_score.set(f"Lopputulos: {self.gamestate.get_score()}")
-        final_score = tk.Label(master=score_window, textvariable=self.current_score)
+        final_score = tk.Label(master=score_window,
+                               textvariable=self.current_score)
         final_score.config(font=("Arial", 25))
-        self.player_name_entry = Entry(score_window, textvariable=self.player_name)
-        self.player_name_button = tk.Button(master=score_window, text="Tallenna", command=self.__player_name_button_click)
-        self.scores_stringvar_label = tk.Label(master=score_window, textvariable=self.scores_stringvar)
-        quit_button = tk.Button(master=score_window, text="Poistu", command=self._root.destroy)
+        self.player_name_entry = Entry(
+            score_window, textvariable=self.player_name)
+        self.player_name_button = tk.Button(
+            master=score_window, text="Tallenna", command=self.__player_name_button_click)
+        self.scores_stringvar_label = tk.Label(
+            master=score_window, textvariable=self.scores_stringvar)
+        quit_button = tk.Button(master=score_window,
+                                text="Poistu", command=self._root.destroy)
 
         final_score.grid(row=0, column=0, columnspan=2)
         self.player_name_entry.grid(row=1, column=0)
@@ -100,7 +122,8 @@ class UI:
 
         error_message_label = tk.Label(master=error_window, text=message)
         error_message_label.config(font=("Arial", 15))
-        ok_button = tk.Button(master=error_window, text="OK", command=error_window.destroy)
+        ok_button = tk.Button(master=error_window, text="OK",
+                              command=error_window.destroy)
 
         error_message_label.grid(row=0, column=0)
         ok_button.grid(row=5, column=0)
@@ -131,7 +154,8 @@ class UI:
                 self.dice_four_held.set(False)
                 self.dice_five_held.set(False)
                 self.dice.reset_dice()
-            self.info.set(f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
+            self.info.set(
+                f"Kierros {self.gamestate.get_round()}, heitto {self.gamestate.get_throw()}")
             self.current_dice.set(self.dice.print_dice())
 
             if self.gamestate.get_round() > 15:
@@ -219,7 +243,8 @@ class UI:
             self.dice.reset_dice()
             self.__throw_button_click(True)
             self.scoring_choice_list.remove(self.scoring_combobox.get())
-            self.scoring_combobox = ttk.Combobox(master=self._root, values=self.scoring_choice_list)
+            self.scoring_combobox = ttk.Combobox(
+                master=self._root, values=self.scoring_choice_list)
             self.scoring_combobox.grid(row=4, column=0, columnspan=4)
             self.scoring_combobox.set("Valitse pisteytyskategoria")
         else:

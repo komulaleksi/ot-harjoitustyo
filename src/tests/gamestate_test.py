@@ -46,28 +46,29 @@ class testGameState(unittest.TestCase):
         self.assertEqual(self.state.get_scoring_method_used("ykköset"), False)
 
     def test_return_scoring_method_used_prints_correctly(self):
-        self.assertEqual(self.state.return_scoring_method_used(), 
-                                    {"ykköset": False,
-                                    "kakkoset": False,
-                                    "kolmoset": False,
-                                    "neloset": False,
-                                    "viitoset": False,
-                                    "kuutoset": False,
-                                    "yksi pari": False,
-                                    "kaksi paria": False,
-                                    "kolmoisluku": False,
-                                    "nelosluku": False,
-                                    "pieni suora": False,
-                                    "suuri suora": False,
-                                    "yatzy": False,
-                                    "täyskäsi": False,
-                                    "sattuma": False})
-        
+        self.assertEqual(self.state.return_scoring_method_used(),
+                         {"ykköset": False,
+                          "kakkoset": False,
+                          "kolmoset": False,
+                          "neloset": False,
+                          "viitoset": False,
+                          "kuutoset": False,
+                          "yksi pari": False,
+                          "kaksi paria": False,
+                          "kolmoisluku": False,
+                          "nelosluku": False,
+                          "pieni suora": False,
+                          "suuri suora": False,
+                          "yatzy": False,
+                          "täyskäsi": False,
+                          "sattuma": False})
+
     def test_use_scoring_method_changes_method_to_true(self):
         old_method = self.state.get_scoring_method_used("viitoset")
         self.state.use_scoring_method("viitoset", 15)
 
-        self.assertNotEqual(old_method, self.state.get_scoring_method_used("viitoset"))
+        self.assertNotEqual(
+            old_method, self.state.get_scoring_method_used("viitoset"))
 
     def test_next_round_updates_round(self):
         self.state.next_round()

@@ -1,5 +1,6 @@
 import random
 
+
 class Dice:
     def __init__(self):
         self.dice = [1, 1, 1, 1, 1]
@@ -72,7 +73,7 @@ class Dice:
 
     def all_dice_held(self):
         """Checks whether all the dice are held.
-        
+
         Returns:
             bool: False if one or more of the die is not held. True otherwise."""
         for i in range(1, 6):
@@ -80,7 +81,7 @@ class Dice:
                 return False
 
         return True
-    
+
     def print_dice(self):
         """Prints the dice formatted properly for the UI
 
