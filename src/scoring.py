@@ -132,10 +132,8 @@ class Scoring:
     def full_house(self, dice):
         score = 0
         for i in range(1, 7):
-            # kolmoisluku
             if dice.count(i) == 3:
                 score += i*3
-            # pari
             elif dice.count(i) == 2:
                 score += i*2
 

@@ -5,6 +5,8 @@ from scoring import Scoring
 from file_reader import FileReader
 
 class UI:
+    """Handles generating and displaying UI elements.
+    """
     def __init__(self, dice):
         self._root = Tk()
         self._root.geometry("300x300")
@@ -27,6 +29,8 @@ class UI:
         self.scoring_choice_list = ["Valitse pisteytyskategoria", "Ykköset", "Kakkoset", "Kolmoset", "Neloset", "Viitoset", "Kuutoset",
                                     "Yksi pari", "Kaksi paria", "Kolmoisluku", "Nelosluku", "Pieni suora", "Suuri suora", "Täyskäsi", "Sattuma", "Yatzy"]
     def start(self):
+        """Generates main window, where the game is played.
+        """
         info_label = tk.Label(master=self._root, textvariable=self.info)
         info_label.config(font=("Arial", 30))
         dice_label = tk.Label(master=self._root, textvariable=self.current_dice)

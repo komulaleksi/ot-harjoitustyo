@@ -24,11 +24,21 @@ class FileReader():
                 f.close()
 
     def write_score(self, score):
+        """Writes nickname and score in csv format to data/scores.csv.
+
+        Args:
+            score (Str): nickname and score in csv format.
+        """
         with open(self.file_path, "a", newline="") as file:
             writer = csv.writer(file)
             writer.writerows(score)
 
     def read_score(self):
+        """Reads and returns all lines from data/csv.test.
+
+        Returns:
+            List: List of nicknames and scores.
+        """
         with open(self.file_path, "r") as file:
             reader = csv.reader(file)
             scores = []
@@ -38,6 +48,11 @@ class FileReader():
         return scores
 
     def print_score(self):
+        """Returns top 10 scores sorted from highest to lowest as a string.
+
+        Returns:
+            Str: String of top 10 scores sorted.
+        """
         with open(self.file_path, "r") as file:
             reader = csv.reader(file)
             scores = []
