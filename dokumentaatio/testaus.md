@@ -17,4 +17,5 @@ Järjestelmätestaus on suoritettu manuaalisesti. Ohjelma on ladattu koneelle se
 ## Ohjelmaan jääneitä bugeja ja laatuongelmia
 
 - Pelin lopuksi käyttäjän syöttäessä nimimerkkiään käyttäjän syötettä ei ole suodatettu muuten kuin pilkun osalta. Tämän vuoksi tietyt erikoismerkit saattavat rikkoa csv-tiedoston järjestelyn.
+- Käyttöliittymän ikkunoiden koko vaihtelee eri käyttöjärjestelmien välillä ilmeisesti käyttöjärjestelmän fonttien mukaan. Tämän vuoksi ikkunat saattavat joskus avautua liian pieninä.
 - Ohjelman toimintaa ei ole testattu Windows-käyttöjärjestelmällä.
