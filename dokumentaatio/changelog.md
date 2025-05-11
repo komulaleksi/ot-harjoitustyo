@@ -25,3 +25,8 @@
 
 - Graafinen käyttöliittymä on nyt olemassa
 - GUIssa on suurin osa toiminnallisuudesta poislukien pisteiden tallennus
+
+## Viikko 7
+
+- Luotu lopputulosnäkymä pelin loputtua
+- Oman tuloksen tallennus ja huipputulosten tallennus toimii nyt lopputulosnäkymässä

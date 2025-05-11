@@ -18,4 +18,5 @@
 | 8.5 | 1 | Luotu lopputulos-näkymä |
 | 9.5 | 1.5 | Lopputulosnäkymän säätöä |
 | 9.5 | 1 | Docstring dokumentaatiota |
-Yhteensä: 27.5 tuntia.
+| 10.5 | 1 | Docstring dokumentaatiota |
+Yhteensä: 28.5 tuntia.
