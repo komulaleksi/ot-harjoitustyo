@@ -67,7 +67,8 @@ poetry run invoke format
 
 ## Releaset
 [Viikko 5](https://github.com/komulaleksi/ot-harjoitustyo/releases/tag/viikko5)  
-[Viikko 6](https://github.com/komulaleksi/ot-harjoitustyo/releases/tag/viikko6)
+[Viikko 6](https://github.com/komulaleksi/ot-harjoitustyo/releases/tag/viikko6)  
+[Loppupalautus](https://github.com/komulaleksi/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ## Dokumentaatio
 [Vaativuusmäärittely](https://github.com/komulaleksi/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
