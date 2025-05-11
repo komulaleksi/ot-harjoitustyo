@@ -19,4 +19,5 @@
 | 9.5 | 1.5 | Lopputulosnäkymän säätöä |
 | 9.5 | 1 | Docstring dokumentaatiota |
 | 10.5 | 1 | Docstring dokumentaatiota |
-Yhteensä: 28.5 tuntia.
+| 10.5 | 3 | Ohjelman viimeistelyä sekä dokumentaation päivittelyä |
+Yhteensä: 31.5 tuntia.
