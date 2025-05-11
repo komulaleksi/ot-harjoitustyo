@@ -111,3 +111,17 @@ class TestScoring(unittest.TestCase):
         score = self.scoring.full_house(dice.get_dice())
 
         self.assertEqual(score, 16)
+
+    def test_locked_dice_not_rolled(self):
+        dice = Dice()
+        dice.set_dice([2, 4, 5, 4, 4])
+        dice.change_status(2)
+        dice.change_status(4)
+        dice.change_status(5)
+        dice.throw_dice()
+
+        locked_dice = []
+        locked_dice.append(dice.get_dice()[1])
+        locked_dice.append(dice.get_dice()[3])
+        locked_dice.append(dice.get_dice()[4])
+        self.assertEqual(locked_dice, [4, 4, 4])

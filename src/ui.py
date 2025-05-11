@@ -117,7 +117,7 @@ class UI:
 
     def __open_error_window(self, message):
         error_window = tk.Toplevel()
-        error_window.geometry("180x60")
+        error_window.geometry("180x70")
         error_window.title("YatzyGame")
 
         error_message_label = tk.Label(master=error_window, text=message)
@@ -133,12 +133,15 @@ class UI:
     def __player_name_button_click(self):
         if not self.player_name_button_clicked:
             name = self.player_name.get()
-            final_score = [[name, self.gamestate.get_score()]]
-            self.file_reader.write_score(final_score)
-            self.player_name_button_clicked = True
+            if "," in name:
+                self.__open_error_window("Nimimerkki ei voi sisältää \n pilkkua")
+            else:
+                final_score = [[name, self.gamestate.get_score()]]
+                self.file_reader.write_score(final_score)
+                self.player_name_button_clicked = True
 
-            self.scores_stringvar.set(f"{self.file_reader.print_score()}")
-            self.scores_stringvar_label.grid(row=2, column=0, columnspan=2)
+                self.scores_stringvar.set(f"{self.file_reader.print_score()}")
+                self.scores_stringvar_label.grid(row=2, column=0, columnspan=2)
 
     def __throw_button_click(self, force_update=False):
         self.force_update = force_update

@@ -61,3 +61,9 @@ class testDice(unittest.TestCase):
         self.dice.change_status(5)
 
         self.assertEqual(self.dice.all_dice_held(), False)
+
+    def test_print_dice_formats_str_correctly(self):
+        self.dice.set_dice([1, 2, 3, 4, 5])
+        output_string = self.dice.print_dice()
+
+        self.assertEqual(output_string, "| 1 | 2 | 3 | 4 | 5 | ")
